@@ -1,0 +1,38 @@
+name: Java Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  JDK_VERSION: '17'
+  SPIGOT_VERSION: '1.18'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: temurin
+        java-version: ${{ env.JDK_VERSION }}
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+    - name: Resolve shaded .jar
+      id: resolve-shaded
+      run: |
+        JAR_PATH=`echo **/wrld-payments-commands-*.jar`
+        JAR_NAME=`basename ${JAR_PATH}`
+
+        echo ::set-output name=jar_path::${JAR_PATH}
+        echo ::set-output name=jar_name::${JAR_NAME}
+    - name: Upload .jar
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ steps.resolve-shaded.outputs.jar_name }}
+        path: ${{ steps.resolve-shaded.outputs.jar_path }}
