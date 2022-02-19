@@ -1,0 +1,7 @@
+com\nftworlds\wrldcommands\CommandListPendingRequests.class
+com\nftworlds\wrldcommands\PlayerTransactEventListener$1.class
+com\nftworlds\wrldcommands\PlayerTransactEventListener.class
+com\nftworlds\wrldcommands\CommandServerRequestWRLD.class
+com\nftworlds\wrldcommands\CommandSimulateWRLDTransaction.class
+com\nftworlds\wrldcommands\ExampleTransactionType.class
+com\nftworlds\wrldcommands\WRLDPaymentsCommands.class
