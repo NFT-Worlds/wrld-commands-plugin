@@ -1,7 +1,7 @@
 package com.nftworlds.wrldcommands;
 
 import com.nftworlds.wallet.objects.Network;
-import com.nftworlds.wrldcommands.payloads.ExamplePayload;
+import com.nftworlds.wrldcommands.payloads.ExampleTeleportPayload;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +17,7 @@ public class CommandServerRequestWRLD implements CommandExecutor {
         }
         Player p = (Player) sender;
 
-        ExamplePayload n = new ExamplePayload(p.getLocation());
+        ExampleTeleportPayload n = new ExampleTeleportPayload(p.getLocation());
         WRLDPaymentsCommands.getPayments().getNFTPlayer((Player) sender).getPrimaryWallet().requestWRLD(
                 Double.parseDouble(args[0]), Network.POLYGON, args[1], n
         );
