@@ -19,7 +19,7 @@ public class CommandListPendingRequests implements CommandExecutor {
             String associatedPlayerName = Bukkit.getPlayer(p.getAssociatedPlayer()).getName();
             String line = "[" + ChatColor.GREEN + i + ChatColor.WHITE + "] " + ChatColor.GRAY +
                     p.getReason() + ChatColor.WHITE + " | " + ChatColor.GOLD + p.getAmount() + ChatColor.WHITE + " | " +
-                    ChatColor.BLUE + associatedPlayerName;
+                    ChatColor.BLUE + associatedPlayerName + ChatColor.WHITE + " | " + p.getPayload().getClass().getSimpleName();
             sender.sendMessage(line);
         }
         sender.sendMessage("To simulate the results of a pending transaction being paid run /simulatetx <" + ChatColor.GREEN + "id" + ChatColor.WHITE + ">");

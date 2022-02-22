@@ -18,10 +18,7 @@ public class CommandSimulateWRLDTransaction implements CommandExecutor {
         }
         PaymentRequest paymentRequest = PaymentRequest.getPaymentRequests().get(Integer.parseInt(args[0]));
         if (paymentRequest != null) {
-            new PlayerTransactEvent(
-                    Objects.requireNonNull(Bukkit.getPlayer(paymentRequest.getAssociatedPlayer())),
-                    paymentRequest.getAmount(), paymentRequest.getReason(), paymentRequest.getRefid())
-                    .callEvent();
+            paymentRequest.finalizeTransaction();
             PaymentRequest.getPaymentRequests().remove(paymentRequest);
         }
         return true;

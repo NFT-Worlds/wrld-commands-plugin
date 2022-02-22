@@ -17,6 +17,10 @@
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>worldql-partners</id>
+            <url>https://maven.worldql.com/releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -30,9 +34,7 @@
         <dependency>
             <groupId>com.nftworlds</groupId>
             <artifactId>wrld-payments-api</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/wrld-payments-api-1.0-shaded.jar</systemPath>
+            <version>0.1.0</version>
         </dependency>
 
     </dependencies>

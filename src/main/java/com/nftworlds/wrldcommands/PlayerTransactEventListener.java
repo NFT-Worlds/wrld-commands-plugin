@@ -1,6 +1,7 @@
 package com.nftworlds.wrldcommands;
 
 import com.nftworlds.wallet.event.PlayerTransactEvent;
+import com.nftworlds.wrldcommands.payloads.ExamplePayload;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -10,15 +11,11 @@ import org.bukkit.inventory.ItemStack;
 public class PlayerTransactEventListener implements Listener {
     @EventHandler
     public void onPlayerTransactEvent(PlayerTransactEvent event) {
-        WRLDPaymentsCommands.getInstance().getLogger().info(event.getReason() + " exe");
-        try {
-            ExampleTransactionType type = ExampleTransactionType.valueOf(event.getReason());
-            switch (type) {
-                case PLAYER_BUY_APPLE_FROM_WORLD -> playerBuyAppleFromWorld(event);
-                case PLAYER_BUY_XP_FROM_WORLD -> playerBuyXPFromWorld(event);
-            }
-        } catch (IllegalArgumentException e) {
-            WRLDPaymentsCommands.getInstance().getLogger().warning("Received transaction type not in transaction type enum.");
+        if (event.getPayload() == null) {
+            return;
+        }
+        if (event.getPayload() instanceof ExamplePayload examplePayload) {
+            System.out.println(examplePayload.location);
         }
     }
 
