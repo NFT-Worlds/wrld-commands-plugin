@@ -24,6 +24,7 @@ public class WRLDPaymentsCommands extends JavaPlugin {
         Objects.requireNonNull(getCommand("createrequest")).setExecutor(new CommandServerRequestWRLD());
         Objects.requireNonNull(getCommand("listrequests")).setExecutor(new CommandListPendingRequests());
         Objects.requireNonNull(getCommand("simulatetx")).setExecutor(new CommandSimulateWRLDTransaction());
+        Objects.requireNonNull(getCommand("payplayer")).setExecutor(new CommandPayPlayer());
 
         getServer().getPluginManager().registerEvents(new PlayerTransactEventListener(), this);
 

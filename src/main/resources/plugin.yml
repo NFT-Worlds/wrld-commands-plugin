@@ -16,6 +16,11 @@ commands:
     usage: /listrequests
     permission: wrldpaymentscommands.listrequests
     default: op
+  payplayer:
+    description: Send funds from the server wallet to a player
+    usage: /payplayer <player> <amount> <reason>
+    permission: wrldpaymentscommands.payplayer
+    default: op
   simulatetx:
     description: Simulate the completion of a transaction without an actual blockchain tx
     usage: /simulatetx <id>
