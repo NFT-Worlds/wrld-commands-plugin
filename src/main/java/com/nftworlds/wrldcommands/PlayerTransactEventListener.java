@@ -1,6 +1,7 @@
 package com.nftworlds.wrldcommands;
 
 import com.nftworlds.wallet.event.PlayerTransactEvent;
+import com.nftworlds.wallet.event.PlayerWalletReadyEvent;
 import com.nftworlds.wrldcommands.payloads.ExampleTeleportPayload;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -16,6 +17,11 @@ public class PlayerTransactEventListener implements Listener {
         if (event.getPayload() instanceof ExampleTeleportPayload examplePayload) {
             handleExampleTeleportPayload(event.getPlayer(), examplePayload.location);
         }
+    }
+
+    @EventHandler
+    public void onPlayerReady(PlayerWalletReadyEvent e) {
+        WRLDPaymentsCommands.getInstance().getLogger().info("PlayerWalletReadyEvent for " + e.getPlayer());
     }
 
     private void handleExampleTeleportPayload(Player p, Location l) {

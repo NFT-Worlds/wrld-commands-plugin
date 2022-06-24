@@ -26,3 +26,11 @@ commands:
     usage: /simulatetx <id>
     permission: wrldpaymentscommands.simulatetx
     default: op
+  listnfts:
+    description: List the NFTs owned by the player.
+    usage: /listnfts
+    default: true
+  mintnft:
+    description: Mint an ERC1155 NFT with the given contract and id to the player running the command
+    usage: /mintnft <contract> <id>
+    default: op

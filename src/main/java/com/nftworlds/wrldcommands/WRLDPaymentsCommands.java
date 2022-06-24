@@ -25,6 +25,8 @@ public class WRLDPaymentsCommands extends JavaPlugin {
         Objects.requireNonNull(getCommand("listrequests")).setExecutor(new CommandListPendingRequests());
         Objects.requireNonNull(getCommand("simulatetx")).setExecutor(new CommandSimulateWRLDTransaction());
         Objects.requireNonNull(getCommand("payplayer")).setExecutor(new CommandPayPlayer());
+        Objects.requireNonNull(getCommand("listnfts")).setExecutor(new CommandListNFTs());
+        Objects.requireNonNull(getCommand("mintnft")).setExecutor(new CommandMintNFT());
 
         getServer().getPluginManager().registerEvents(new PlayerTransactEventListener(), this);
 
